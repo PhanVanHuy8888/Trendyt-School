@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    properties:
+      hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
