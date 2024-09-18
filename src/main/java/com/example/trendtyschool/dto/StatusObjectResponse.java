@@ -12,7 +12,7 @@ import java.util.List;
 public class StatusObjectResponse {
     private boolean isBoolean;
     private String errorMessage;
-    private Object object;
+    private Object token;
     private List<Object> listObject;
 
 }

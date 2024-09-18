@@ -2,6 +2,7 @@ package com.example.trendtyschool.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.util.Date;
 
@@ -12,7 +13,11 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "Token")
-public class Token extends AbstractEntity{
+public class Token {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "accessToken")
     private String accessToken;
@@ -36,4 +41,8 @@ public class Token extends AbstractEntity{
 
     @Column(name = "course")
     private String course;
+
+    @Column(name = "createTime", nullable = false)
+    @CreationTimestamp
+    private Date createTime;
 }

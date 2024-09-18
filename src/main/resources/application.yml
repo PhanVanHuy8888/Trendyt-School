@@ -9,11 +9,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: false
-    properties:
-      hibernate.dialect: org.hibernate.dialect.SQLServer2012Dialect
+
 ---
 spring:
   config:
     activate:
       on-profile: dev
+jwt:
+  secretKey: fabeb0e18109414e9ab81b9dba8f88c341bbc9e6edf3db132df0a18be2557e39
+  refreshKey: 6qs0ii6phyyaI3MlO5aQ8/D/RBJcQKGxMFuBdfwC+Qw=
+  expiryHour: 1
+  expiryDay: 14
