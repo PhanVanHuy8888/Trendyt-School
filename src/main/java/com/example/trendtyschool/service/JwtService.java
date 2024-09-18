@@ -66,7 +66,8 @@ public class JwtService {
     private String generateRefreshToken(Map<String, Object> claims, Account account) {
         return Jwts.builder()
                 .setClaims(claims)
-                .setId(String.valueOf(account.getId()))
+                .claim("Scope", buildScope(account))
+                .claim("accountId", account.getId())
                 .setSubject(account.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 24 * expiryDay))

@@ -2,7 +2,7 @@ spring:
   profiles:
     active: dev
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://192.168.1.204:1433;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
     username: sa
     password: 123456
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver

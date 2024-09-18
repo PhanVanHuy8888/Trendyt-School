@@ -1,6 +1,5 @@
 package com.example.trendtyschool.config;
 
-//import com.example.trendtyschool.service.AccountService;
 import com.example.trendtyschool.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
