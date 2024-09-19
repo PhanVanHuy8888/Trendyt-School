@@ -1,4 +1,4 @@
-package com.example.trendtyschool.dto;
+package com.example.trendtyschool.dto.reponse;
 
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class StatusObjectResponse {
     private boolean isBoolean;
     private String errorMessage;
-    private Object token;
+    private Object object;
     private List<Object> listObject;
 
 }

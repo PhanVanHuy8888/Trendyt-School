@@ -1,10 +1,7 @@
-package com.example.trendtyschool.model;
+package com.example.trendtyschool.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.util.Date;
 
 @Getter
 @Setter
@@ -13,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "Role")
-public class Role extends AbstractEntity{
+public class Role extends AbstractEntity {
 
     @Column(name = "nameRole", nullable = false)
     private String nameRole;

@@ -1,4 +1,4 @@
-package com.example.trendtyschool.dto;
+package com.example.trendtyschool.dto.request;
 
 import lombok.Getter;
 

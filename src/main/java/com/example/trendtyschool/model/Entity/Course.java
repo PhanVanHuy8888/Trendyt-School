@@ -1,4 +1,4 @@
-package com.example.trendtyschool.model;
+package com.example.trendtyschool.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "Course")
-public class Course extends AbstractEntity{
+public class Course extends AbstractEntity {
 
     @Column(name = "start")
     private String start;

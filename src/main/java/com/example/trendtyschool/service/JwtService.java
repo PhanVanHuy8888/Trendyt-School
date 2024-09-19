@@ -1,6 +1,6 @@
 package com.example.trendtyschool.service;
 
-import com.example.trendtyschool.model.Account;
+import com.example.trendtyschool.model.Entity.Account;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
