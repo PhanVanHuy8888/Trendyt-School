@@ -1,15 +1,14 @@
 package com.example.trendtyschool.repository;
 
-import com.example.trendtyschool.dto.StatusObjectResponse;
-import com.example.trendtyschool.dto.TokenResponse;
-import com.example.trendtyschool.model.Account;
-import com.example.trendtyschool.model.Role;
-import com.example.trendtyschool.model.Token;
+import com.example.trendtyschool.dto.reponse.StatusObjectResponse;
+import com.example.trendtyschool.dto.reponse.TokenResponse;
+import com.example.trendtyschool.model.Entity.Account;
+import com.example.trendtyschool.model.Entity.Role;
 //import com.example.trendtyschool.service.JwtService;
+import com.example.trendtyschool.model.Entity.Token;
 import com.example.trendtyschool.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -69,7 +68,7 @@ public class UserRepository {
                         String accessToken = jwtService.generateToken(account);
                         String refreshToken = jwtService.generateRefreshToken(account);
 
-                        response.setToken(TokenResponse.builder()
+                        response.setObject(TokenResponse.builder()
                                 .accessToken(accessToken)
                                 .refreshToken(refreshToken)
                                 .build());
@@ -97,6 +96,7 @@ public class UserRepository {
                     // Xử lý lỗi SQL và thiết lập thông báo lỗi
                     response.setBoolean(false);
                     response.setErrorMessage(e.getMessage());
+                    System.out.println(e.getMessage());
                     return null;
                 }
             }

@@ -1,7 +1,7 @@
 package com.example.trendtyschool.service;
 
-import com.example.trendtyschool.model.Account;
-import com.example.trendtyschool.repository.AccountRepo;
+import com.example.trendtyschool.model.Entity.Account;
+import com.example.trendtyschool.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountService implements UserDetailsService {
 
-    private final AccountRepo accountRepo;
+    private final AccountRepository accountRepo;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
