@@ -1,4 +1,4 @@
-package com.example.trendtyschool.model;
+package com.example.trendtyschool.model.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;

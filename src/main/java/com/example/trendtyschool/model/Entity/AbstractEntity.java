@@ -1,7 +1,6 @@
-package com.example.trendtyschool.model;
+package com.example.trendtyschool.model.Entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;

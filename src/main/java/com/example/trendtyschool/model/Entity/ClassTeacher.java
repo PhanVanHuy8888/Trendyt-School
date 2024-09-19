@@ -1,4 +1,4 @@
-package com.example.trendtyschool.model;
+package com.example.trendtyschool.model.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -13,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "ClassTeacher")
-public class ClassTeacher extends AbstractEntity{
+public class ClassTeacher extends AbstractEntity {
 
     @ManyToOne
     @JoinColumn(name = "idClassSchool", insertable = false, updatable = false)

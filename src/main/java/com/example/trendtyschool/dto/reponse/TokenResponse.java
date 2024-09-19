@@ -1,6 +1,8 @@
-package com.example.trendtyschool.dto;
+package com.example.trendtyschool.dto.reponse;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

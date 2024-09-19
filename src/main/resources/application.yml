@@ -1,11 +1,19 @@
 spring:
   profiles:
     active: dev
+
+################### Data Host ########################
   datasource:
-    url: jdbc:sqlserver://192.168.1.204:1433;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
-    username: sa
-    password: 123456
+    url: jdbc:sqlserver://SQL8020.site4now.net;databaseName=db_aac186_trendyt002;user=db_aac186_trendyt002_admin;password=trendyt002;encrypt=true;trustServerCertificate=true
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+################### Data Local ########################
+#  datasource:
+#    url: jdbc:sqlserver://localhost:1444;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
+#    username: SA
+#    password: Tung2003#
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
   jpa:
     hibernate:
       ddl-auto: none
