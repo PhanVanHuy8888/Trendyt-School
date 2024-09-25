@@ -69,6 +69,7 @@ public class KhoaRepository {
                 new Object[]{id, khoaRequest.getNameKhoa(), khoaRequest.getMaKhoa()},
                 String.class
         );
+        String result;
         return resultMessage;
     }
 
