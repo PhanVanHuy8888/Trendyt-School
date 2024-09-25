@@ -39,11 +39,12 @@ public class JwtService {
         return generateRefreshToken(new HashMap<>(), account);
     }
 
-
+    // Lấy username từ token
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
+    // kiểm tra token hợp lệ hay ko
     public boolean isValid(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return username.equals(userDetails.getUsername());
@@ -75,21 +76,24 @@ public class JwtService {
                 .compact();
     }
 
+    // lấy secretKey để ký token
     private Key getKey() {
         byte[] keyBytes = Decoders.BASE64URL.decode(secretKey);
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    private <T> T extractClaim(String token, Function<Claims, T> claimResolver) {
+    // lấy 1 claim cụ thể
+    public  <T> T extractClaim(String token, Function<Claims, T> claimResolver) {
         final Claims claims = extractAllClaims(token);
         return claimResolver.apply(claims);
     }
 
-
+    // lấy tất cả các claim
     private Claims extractAllClaims(String token) {
         return Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(token).getBody();
     }
 
+    // Lấy ra role để thêm vào token
     private String buildScope(Account account) {
         StringJoiner stringJoiner = new StringJoiner(" ");
 
@@ -103,6 +107,4 @@ public class JwtService {
     public Date expiryTime() {
         return new Date(System.currentTimeMillis() + 1000 * 60 * 60 * expiryHour);
     }
-
-
 }

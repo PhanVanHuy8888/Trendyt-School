@@ -3,9 +3,9 @@ spring:
     active: dev
 
 ################### Data Host ########################
-  datasource:
-    url: jdbc:sqlserver://SQL8020.site4now.net;databaseName=db_aac186_trendyt002;user=db_aac186_trendyt002_admin;password=trendyt002;encrypt=true;trustServerCertificate=true
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+#  datasource:
+#    url: jdbc:sqlserver://SQL8020.site4now.net;databaseName=db_aac186_trendyt002;user=db_aac186_trendyt002_admin;password=trendyt002;encrypt=true;trustServerCertificate=true
+#    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
 ################### Data Local ########################
 #  datasource:
@@ -13,6 +13,11 @@ spring:
 #    username: SA
 #    password: Tung2003#
 #    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=TRENDYT_SCHOOL_DB;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
     hibernate:
@@ -28,6 +33,5 @@ spring:
       on-profile: dev
 jwt:
   secretKey: fabeb0e18109414e9ab81b9dba8f88c341bbc9e6edf3db132df0a18be2557e39
-  refreshKey: 6qs0ii6phyyaI3MlO5aQ8/D/RBJcQKGxMFuBdfwC+Qw=
   expiryHour: 1
   expiryDay: 14

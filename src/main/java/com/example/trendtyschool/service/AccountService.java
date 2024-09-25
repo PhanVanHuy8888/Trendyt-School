@@ -20,6 +20,7 @@ public class AccountService implements UserDetailsService {
 
     private final AccountRepository accountRepo;
 
+    // load user từ db
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Account account = accountRepo.findByUserName(username);
