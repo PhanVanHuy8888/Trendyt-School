@@ -1,10 +1,9 @@
-package com.example.trendtyschool.repository;
+package com.example.trendtyschool.repository.procedures;
 
 import com.example.trendtyschool.dto.reponse.StatusObjectResponse;
 import com.example.trendtyschool.dto.reponse.TokenResponse;
 import com.example.trendtyschool.model.Entity.Account;
 import com.example.trendtyschool.model.Entity.Role;
-//import com.example.trendtyschool.service.JwtService;
 import com.example.trendtyschool.model.Entity.Token;
 import com.example.trendtyschool.service.JwtService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,22 +30,30 @@ public class UserRepository {
 
 
     public StatusObjectResponse callLoginProcedure(String userName, String passWord, HttpServletRequest httpRequest) {
+        // Tạo câu truy vấn để gọi stored procedure 'proc_login_account'
         String sql = "EXEC proc_login_account @userName = :userName, @passWord = :passWord";
 
+        // Định nghĩa tham số cho câu truy vấn với các giá trị 'userName' và 'passWord'
         MapSqlParameterSource parameters = new MapSqlParameterSource()
                 .addValue("userName", userName)
                 .addValue("passWord", passWord);
 
+        // Tạo một đối tượng 'StatusObjectResponse' để lưu trạng thái phản hồi
         StatusObjectResponse response = new StatusObjectResponse();
 
+        // Thực hiện truy vấn và ánh xạ kết quả trả về từ stored procedure
         List<Object> results = namedParameterJdbcTemplate.query(sql, parameters, new RowMapper<Object>() {
 
             @Override
             public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
                 try {
+                    // Lấy metadata của ResultSet, chứa thông tin về các cột (số lượng cột, tên cột, kiểu dữ liệu, v.v.)
                     ResultSetMetaData metaData = rs.getMetaData();
+
+                    // Lấy số lượng cột trong kết quả trả về từ ResultSet
                     int columnCount = metaData.getColumnCount();
 
+                    // Kiểm tra nếu chỉ có 1 cột và tên cột đó là 'ErrorMessage'
                     if (columnCount == 1 && metaData.getColumnName(1).equalsIgnoreCase("ErrorMessage")) {
                         // Nếu có lỗi, set thông tin lỗi và boolean là false
                         response.setBoolean(false);
@@ -167,4 +174,9 @@ public class UserRepository {
         return null;
 
     }
+
+
+
+
+
 }
