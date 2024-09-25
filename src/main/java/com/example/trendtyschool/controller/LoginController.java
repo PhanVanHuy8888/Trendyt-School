@@ -5,7 +5,7 @@ import com.example.trendtyschool.dto.reponse.TokenResponse;
 import com.example.trendtyschool.dto.request.LoginRequest;
 import com.example.trendtyschool.helper.StringUrlApi;
 import com.example.trendtyschool.model.ClassModel.TokenAddHeaderModel;
-import com.example.trendtyschool.repository.UserRepository;
+import com.example.trendtyschool.repository.procedures.UserRepository;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
